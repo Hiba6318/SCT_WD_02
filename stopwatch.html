@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advanced Stopwatch — Animated Background</title>
+
+  <!-- Optional Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="stopwatch.css">
+</head>
+<body>
+  <!-- CSS blurred blobs (parallax-like) -->
+  <div class="bg-blob" aria-hidden="true">
+    <span class="b1"></span>
+    <span class="b2"></span>
+    <span class="b3"></span>
+  </div>
+
+  <!-- Particle canvas and spotlight are created by script.js -->
+  
+  <div class="container" role="application" aria-labelledby="appTitle">
+    <header>
+      <div>
+        <h1 id="appTitle">Stopwatch</h1>
+        <div class="subtitle">Start · Pause · Lap · Reset — (Space / L / R)</div>
+      </div>
+      <div style="text-align:right">
+        <div class="muted small">Status</div>
+        <div id="status" aria-live="polite">Paused</div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="time-wrap">
+        <div id="display" class="time">00:00.00</div>
+        <div id="nowLabel" class="time-small" aria-hidden="true"></div>
+      </div>
+
+      <div class="controls" role="group" aria-label="Stopwatch controls">
+        <button id="startBtn" class="btn-start" aria-pressed="false">Start</button>
+        <button id="lapBtn" class="btn-lap" disabled>Lap</button>
+        <button id="resetBtn" class="btn-reset">Reset</button>
+        <button id="exportBtn" class="btn-export" disabled>Export</button>
+      </div>
+
+      <div class="hotkeys">
+        <span class="kbd">Space = Start/Pause</span>
+        <span class="kbd">L = Lap</span>
+        <span class="kbd">R = Reset</span>
+      </div>
+    </main>
+
+    <aside class="right" aria-label="Lap list">
+      <div>
+        <div class="panel-title">Laps (<span id="lapCount">0</span>)</div>
+        <div class="muted small">Newest first</div>
+      </div>
+
+      <div id="lapsList" class="laps" role="list" tabindex="0" aria-live="polite"></div>
+
+      <div style="display:flex; justify-content:flex-end; margin-top:12px;">
+        <button id="clearLaps" class="btn-reset">Clear Laps</button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="stopwatch.js"></script>
+</body>
+</html>
