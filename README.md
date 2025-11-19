@@ -1,2 +1,2 @@
 # SCT_WD_02
-This is a stop watch web page project.
+This is a stopwatch web page project.
